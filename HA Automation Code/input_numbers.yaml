@@ -1,0 +1,16 @@
+input_number:
+  target_ecmin:
+    name: Target EC Minimum Slider
+    min: 0
+    max: 2
+    step: 0.1
+    unit_of_measurement: "EC"
+    icon: mdi:target
+
+  target_ecmax:
+    name: Target EC Maximum Slider
+    min: 0
+    max: 3
+    step: 0.1
+    unit_of_measurement: "EC"
+    icon: mdi:target

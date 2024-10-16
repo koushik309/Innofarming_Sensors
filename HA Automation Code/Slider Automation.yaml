@@ -1,0 +1,44 @@
+automation:
+  - alias: "Set EC minimum slider"
+    trigger:
+      platform: mqtt
+      topic: "setDosingmin"
+    action:
+      service: input_number.set_value
+      target:
+        entity_id: input_number.target_ecmin
+      data:
+        value: "{{ trigger.payload }}"
+
+  - alias: "Set EC maximum slider"
+    trigger:
+      platform: mqtt
+      topic: "setDosingmax"
+    action:
+      service: input_number.set_value
+      target:
+        entity_id: input_number.target_ecmax
+      data:
+        value: "{{ trigger.payload }}"
+
+  - alias: "EC slider minimum moved"
+    trigger:
+      platform: state
+      entity_id: input_number.target_ecmin
+    action:
+      service: mqtt.publish
+      data:
+        topic: "setDosingmin"
+        retain: true
+        payload: "{{ states('input_number.target_ecmin') | float }}"
+
+  - alias: "EC slider maximum moved"
+    trigger:
+      platform: state
+      entity_id: input_number.target_ecmax
+    action:
+      service: mqtt.publish
+      data:
+        topic: "setDosingmax"
+        retain: true
+        payload: "{{ states('input_number.target_ecmax') | float }}"
