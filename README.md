@@ -1,5 +1,5 @@
 # Innofarming_Sensors
-ESP32 Sensor Integration and Home Automation for Fluid Dosing Control
+#ESP32 Sensor Integration and Home Automation for Fluid Dosing Control
 This repository contains the codebase for integrating various sensors with the ESP32, and the automation scripts for Home Assistant to control a fluid dosing system. It focuses on monitoring and managing critical environmental parameters, such as electrical conductivity (EC) and pH, using DFrobot sensors.
 
 Key Features
